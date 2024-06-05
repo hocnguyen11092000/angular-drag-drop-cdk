@@ -1,0 +1,24 @@
+<div class="p-4">
+  <div class="mb-4">
+    <select [(ngModel)]="col">
+      <option value="1">col 1</option>
+      <option value="2">col 2</option>
+      <option value="3">col 3</option>
+      <option value="4">col 4</option>
+    </select>
+  </div>
+
+  <div #test="cdkDropListGroup" class="d-flex" cdkDropListGroup>
+    <div
+      class="board-dnd-list"
+      drag-list
+      *ngFor="let lane of lanes; let idx = index"
+      [lane]="lane"
+      [col]="col"
+      [list]="test"
+      [class.px-2]="idx === 0"
+      [class.pl-2]="idx === 1"
+      [class.mr-2]="idx === 0"
+    ></div>
+  </div>
+</div>
